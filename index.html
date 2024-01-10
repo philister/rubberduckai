@@ -1,0 +1,88 @@
+<!-- created by some fancy language model -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rubber Duck AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+      color: #333;
+    }
+
+    .question {
+      color: #007BFF;
+      font-weight: bold;
+    }
+
+    .answer {
+      color: #28A745;
+      font-weight: bold;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 200px;
+    }
+
+    #chatContainer,
+    #chatForm {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    #chatContainer {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="rubberduck.png" alt="Rubber Duck">
+  <p>The wisdom of Rubber Duck now to your service! Thanks AI !!</p>
+
+  <script>
+    var answerCount = 0;
+
+    function displayAnswer() {
+      var question = document.getElementById("question").value;
+      var answerContainer = document.createElement("div");
+      var questionElement = document.createElement("p");
+      var answerElement = document.createElement("p");
+
+      questionElement.innerHTML = "You entered: " + question;
+      questionElement.classList.add("question");
+
+      if (answerCount % 2 === 0) {
+        answerElement.innerHTML = "What would your super smart colleague say?";
+      } else {
+        answerElement.innerHTML = "And then you would say what?";
+      }
+
+      answerElement.classList.add("answer");
+
+      answerContainer.appendChild(questionElement);
+      answerContainer.appendChild(answerElement);
+
+      var chatContainer = document.getElementById("chatContainer");
+      chatContainer.appendChild(answerContainer);
+      chatContainer.style.display = "block";
+
+      answerCount++;
+    }
+  </script>
+  <div id="chatContainer"></div>
+  <div id="chatForm">
+    <form onsubmit="event.preventDefault(); displayAnswer();">
+      <input type="text" id="question" placeholder="Enter your question, explain your Problem" style="width: 300px;" />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+
+</html>
